@@ -19,7 +19,7 @@
 	            }
             }" />
         <Columns>
-            <dx:GridViewCommandColumn VisibleIndex="0">
+            <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="0">
                 <EditButton Visible="True">
                 </EditButton>
                 <NewButton Visible="True">
@@ -27,30 +27,30 @@
                 <DeleteButton Visible="True">
                 </DeleteButton>
             </dx:GridViewCommandColumn>
-            <dx:GridViewDataTextColumn FieldName="id" VisibleIndex="0" ReadOnly="True">
+            <dx:GridViewDataTextColumn FieldName="id" VisibleIndex="0" ReadOnly="True" Caption="S/N">
                 <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="ItemCode" VisibleIndex="1">
+            <dx:GridViewDataTextColumn FieldName="ItemCode" VisibleIndex="2">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="ISBN" VisibleIndex="2">
+            <dx:GridViewDataTextColumn FieldName="Title" VisibleIndex="1">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataDateColumn FieldName="PubDate" VisibleIndex="3">
+            <dx:GridViewDataTextColumn FieldName="Catagory1" VisibleIndex="3" Caption="Category">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="Catagory2" VisibleIndex="4" Caption="Sub Category">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="imprint" VisibleIndex="6" Caption="Imprint">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataTextColumn FieldName="ISBN" VisibleIndex="5">
+            </dx:GridViewDataTextColumn>
+            <dx:GridViewDataDateColumn FieldName="PubDate" VisibleIndex="7">
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataDateColumn FieldName="FirstPrintDate" VisibleIndex="4">
+            <dx:GridViewDataDateColumn FieldName="FirstPrintDate" VisibleIndex="8">
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="Status" VisibleIndex="5">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataDateColumn FieldName="CopyrightDate" VisibleIndex="6">
+            <dx:GridViewDataDateColumn FieldName="CopyrightDate" VisibleIndex="9">
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn FieldName="imprint" VisibleIndex="7">
+            <dx:GridViewDataTextColumn FieldName="language" VisibleIndex="10" Caption="Language">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="language" VisibleIndex="8">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Catagory1" VisibleIndex="9">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Catagory2" VisibleIndex="10">
-            </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn FieldName="Title" VisibleIndex="11">
+            <dx:GridViewDataTextColumn FieldName="Status" VisibleIndex="12">
             </dx:GridViewDataTextColumn>
         </Columns>
         <Settings ShowFilterRow="True" ShowGroupPanel="True" />
