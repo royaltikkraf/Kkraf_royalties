@@ -7,7 +7,7 @@ Imports System.Web.UI
 Imports System.Web.UI.WebControls
 Imports DevExpress.Web.ASPxGridView
 
-Public Class ConnDBase
+Public Class u_Product
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
