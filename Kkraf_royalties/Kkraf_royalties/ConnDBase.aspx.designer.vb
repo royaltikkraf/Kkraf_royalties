@@ -12,16 +12,16 @@ Option Explicit On
 
 
 Partial Public Class ConnDBase
-
+    
     '''<summary>
-    '''ASPxGridView1 control.
+    '''Grid control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ASPxGridView1 As Global.DevExpress.Web.ASPxGridView.ASPxGridView
-
+    Protected WithEvents Grid As Global.DevExpress.Web.ASPxGridView.ASPxGridView
+    
     '''<summary>
     '''Royalties control.
     '''</summary>
@@ -30,4 +30,13 @@ Partial Public Class ConnDBase
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Royalties As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
+    '''ASPxLabel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxLabel1 As Global.DevExpress.Web.ASPxEditors.ASPxLabel
 End Class
