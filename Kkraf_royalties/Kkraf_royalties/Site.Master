@@ -57,7 +57,7 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" runat="server" href="~/ConnDBase">Data & Function<span class="caret"></span></a>
                             <ul class="dropdown-menu">                                
-                                <li><a href="#">Author</a></li>
+                                <li><a runat="server" href="~/u_Author">Author</a></li>
                                 <li><a href="#">Royalty</a></li>
                                 <li><a href="#">Sales</a></li>
                                 <li><a runat="server" href="~/u_Product">Title</a></li>
