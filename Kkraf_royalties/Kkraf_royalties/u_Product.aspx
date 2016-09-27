@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="u_Product.aspx.vb" Inherits="Kkraf_royalties.u_Product" %>
+﻿<%@ Page Title="Title" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="u_Product.aspx.vb" Inherits="Kkraf_royalties.u_Product" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 

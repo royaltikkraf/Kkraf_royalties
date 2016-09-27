@@ -29,6 +29,61 @@ Public Class u_Product
         End If
     End Sub
 
+    Function SortOrder(ByVal Field As String) As String
+        Dim so As String = SortExp.Text
+        If Field = so Then
+            SortOrder = Replace(Field, "asc", "desc")
+        Else
+            SortOrder = Replace(Field, "desc", "asc")
+        End If
+    End Function
+
+    Private Sub Status_PageChange(ByVal source As Object, ByVal e As System.Web.UI.WebControls.DataGridPageChangedEventArgs) Handles Senarai.PageIndexChanged
+        Senarai.CurrentPageIndex = e.NewPageIndex
+        Dim dt As DataTable = TryCast(ViewState("Senarai"), DataTable)
+        dt.DefaultView.Sort = ViewState("sorting")
+        Senarai.DataSource = ViewState("Senarai")
+        Senarai.DataBind()
+
+    End Sub
+
+    Private Sub Status_Sort(ByVal source As Object, ByVal e As System.Web.UI.WebControls.DataGridSortCommandEventArgs) Handles Senarai.SortCommand
+        Senarai.CurrentPageIndex = 0
+        Dim dt As DataTable
+        dt = TryCast(ViewState("Senarai"), DataTable)
+        dt.DefaultView.Sort = String.Format("{0} {1}", e.SortExpression, GetSortDirection(e.SortExpression)) 'a_Exec ASC
+        ViewState.Add("sorting", dt.DefaultView.Sort)
+        Senarai.DataSource = ViewState("Senarai")
+        'dt = ViewState("data")
+        Senarai.DataBind()
+        ViewState.Add("data", dt)
+    End Sub
+
+    Private Function GetSortDirection(ByVal column As String) As String
+        ' By default, set the sort direction to ascending.
+        Dim sortDirection = "ASC"
+        ' Retrieve the last column that was sorted.
+        Dim sortExpression = TryCast(ViewState("SortExpression"), String)
+        If sortExpression IsNot Nothing Then
+            ' Check if the same column is being sorted.
+            ' Otherwise, the default value can be returned.
+            If sortExpression = column Then
+                Dim lastDirection = TryCast(ViewState("SortDirection"), String)
+                If lastDirection IsNot Nothing _
+                  AndAlso lastDirection = "ASC" Then
+
+                    sortDirection = "DESC"
+
+                End If
+            End If
+        End If
+
+        ' Save new values in ViewState.
+        ViewState("SortDirection") = sortDirection
+        ViewState("SortExpression") = column
+        Return sortDirection
+    End Function
+
     Function LoadGridTitle(ByVal SortField As String, ByVal SQuery As String) As Boolean
         Dim dT As DataTable
         Senarai.CurrentPageIndex = 0
@@ -155,6 +210,36 @@ Public Class u_Product
         ScriptManager.RegisterStartupScript(Me.Page, Me.[GetType](), "showalert", sb.ToString(), True)
     End Sub
 
+    Protected Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+        PanelDetail.Visible = False
+        PanelGrid.Visible = True
+    End Sub
+
+    Protected Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim SQLQuery As String
+        SQLQuery = "DELETE From infTitles WHERE ID =" & lblID.Text & ""
+        Result = Clss.ExecuteNonQuery(SQLQuery)
+        If Result = True Then
+            ShowPopUpMsg("Succes : DELETE Data")
+        Else
+            ShowPopUpMsg("Error : DELETE Data " & Clss.oErrMsg & "")
+        End If
+    End Sub
+
+    Protected Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+        Dim SQLQuery As String
+        SQLQuery = "UPDATE infTitles SET ItemCode = '" & TentukanAksaraCalit(txtItemCode.Text) & "', ISBN = '" & TentukanAksaraCalit(txtISBN.Text) & "' , PubDate = CONVERT(DATETIME, '" & txtPubDate.Text & "', 103), FirstPrintDate = CONVERT(DATETIME, '" & txtFirstPrintDate.Text & "', 103), Status = '" & _
+            ddlStatus.SelectedValue & "', CopyrightDate = CONVERT(DATETIME, '" & txtCopyrightDate.Text & "', 103), imprint = '" & ddlimprint.SelectedValue & "', language = '" & ddlLanguage.SelectedValue & "', Catagory1 = '" & ddlCategory.SelectedValue & "', Catagory2 = '" & _
+            ddlSubCategory.SelectedValue & "', Title = '" & TentukanAksaraCalit(txtTitle.Text) & "' WHERE (id = " & lblID.Text & ")"
+
+        Result = Clss.ExecuteNonQuery(SQLQuery)
+        If Result = True Then
+            ShowPopUpMsg("Succes : UPDATE Data")
+        Else
+            ShowPopUpMsg("Error : UPDATE Data " & Clss.oErrMsg & "")
+        End If
+    End Sub
+
     Function TentukanAksaraCalit(ByVal ayat As String) As String
         'On Local Error Resume Next
         Dim i As Integer
@@ -181,9 +266,4 @@ Public Class u_Product
         End If
 
     End Function
-
-    Protected Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
-        PanelDetail.Visible = False
-        PanelGrid.Visible = True
-    End Sub
 End Class

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="u_Author.aspx.vb" Inherits="Kkraf_royalties.u_Author" %>
+﻿<%@ Page Title="Author" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="u_Author.aspx.vb" Inherits="Kkraf_royalties.u_Author" %>
 
 <%@ Register Src="FormAuthor.ascx" TagName="FormAuthor" TagPrefix="uc1" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
