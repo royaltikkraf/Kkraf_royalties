@@ -215,6 +215,11 @@ Public Class Clss
     Dim PubDate As String
     Dim FirstPrintDate As String
     Dim CopyrightDate As String
+    Dim ProductType As String
+    Dim CoverPrice As String
+    Dim Cost As String
+    Dim Barcode As String
+
 
     Public Property oItemCode() As String
         Get
@@ -303,6 +308,42 @@ Public Class Clss
         End Get
         Set(ByVal value As String)
             CopyrightDate = value
+        End Set
+    End Property
+
+    Public Property oProductType() As String
+        Get
+            oProductType = ProductType
+        End Get
+        Set(ByVal value As String)
+            ProductType = value
+        End Set
+    End Property
+
+    Public Property oCoverPrice() As String
+        Get
+            oCoverPrice = CoverPrice
+        End Get
+        Set(ByVal value As String)
+            CoverPrice = value
+        End Set
+    End Property
+
+    Public Property oCost() As String
+        Get
+            oCost = Cost
+        End Get
+        Set(ByVal value As String)
+            Cost = value
+        End Set
+    End Property
+
+    Public Property oBarcode() As String
+        Get
+            oBarcode = Barcode
+        End Get
+        Set(ByVal value As String)
+            Barcode = value
         End Set
     End Property
 
@@ -409,6 +450,10 @@ Public Class Clss
                 Category = dr(9).ToString
                 SubCategory = dr(10).ToString
                 Title = dr(11).ToString
+                ProductType = dr(12).ToString
+                CoverPrice = dr(13).ToString
+                Cost = dr(14).ToString
+                Barcode = dr(15).ToString
 
                 result = True
             ElseIf Not dr.Read Then

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Title" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="u_Product.aspx.vb" Inherits="Kkraf_royalties.u_Product" %>
+﻿<%@ Page Title="Item" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="u_Product.aspx.vb" Inherits="Kkraf_royalties.u_Product" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 
@@ -120,6 +120,36 @@
                     <asp:TextBox ID="txtCopyrightDate" runat="server" Width="80px"></asp:TextBox>
                     <cc1:CalendarExtender ID="txtCopyrightDate_CalendarExtender" runat="server" Enabled="True" TargetControlID="txtCopyrightDate" Format="dd/MM/yyyy">
                     </cc1:CalendarExtender>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; text-align: left">Product Type</td>
+                <td style="vertical-align: top; text-align: center">:</td>
+                <td style="text-align: left; vertical-align: top">
+                    <asp:DropDownList ID="ddlProductType" runat="server" DataSourceID="ProductType" DataTextField="Desc" DataValueField="Type">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="ProductType" runat="server" ConnectionString="<%$ ConnectionStrings:RoyaltiesConn %>" SelectCommand="SELECT [Type], [Desc] FROM [ConfProductType] ORDER BY [Desc]"></asp:SqlDataSource>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; text-align: left">Cover Price</td>
+                <td style="vertical-align: top; text-align: center">:</td>
+                <td style="text-align: left; vertical-align: top">RM
+                    <asp:TextBox ID="txtCoverPrice" runat="server" Width="80px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; text-align: left">Cost</td>
+                <td style="vertical-align: top; text-align: center">:</td>
+                <td style="text-align: left; vertical-align: top">RM
+                    <asp:TextBox ID="txtCost" runat="server" Width="80px"></asp:TextBox>
+                </td>
+            </tr>
+            <tr>
+                <td style="vertical-align: top; text-align: left">Barcode</td>
+                <td style="vertical-align: top; text-align: center">:</td>
+                <td style="text-align: left; vertical-align: top">
+                    <asp:TextBox ID="txtBarcode" runat="server" Width="200px"></asp:TextBox>
                 </td>
             </tr>
             <tr>

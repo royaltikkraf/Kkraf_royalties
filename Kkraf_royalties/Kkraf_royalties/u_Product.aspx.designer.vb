@@ -239,6 +239,51 @@ Partial Public Class u_Product
     Protected WithEvents txtCopyrightDate_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
 
     '''<summary>
+    '''ddlProductType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlProductType As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ProductType control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ProductType As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''txtCoverPrice control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCoverPrice As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtCost control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCost As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtBarcode control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtBarcode As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''ddlStatus control.
     '''</summary>
     '''<remarks>

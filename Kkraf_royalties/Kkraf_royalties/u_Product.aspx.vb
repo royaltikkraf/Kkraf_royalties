@@ -20,6 +20,7 @@ Public Class u_Product
             ddlLanguage.DataBind()
             ddlStatus.DataBind()
             ddlSubCategory.DataBind()
+            ddlProductType.DataBind()
 
             If SortExp.Text = "" Then
                 LoadGridTitle("", "")
@@ -56,7 +57,7 @@ Public Class u_Product
         Senarai.DataSource = ViewState("Senarai")
         'dt = ViewState("data")
         Senarai.DataBind()
-        ViewState.Add("data", dt)
+        ViewState.Add("Senarai", dt)
     End Sub
 
     Private Function GetSortDirection(ByVal column As String) As String
@@ -90,6 +91,7 @@ Public Class u_Product
         Query = "Select * From infTitles Order by Title"
         dT = Clss.ExecuteDataTable(Query, "Order")
         If dT Is Nothing Then
+            Result = False
             lblErrMsg.Text = String.Format("ERROR : Bind Data ({0})!", Clss.oErrMsg)
         ElseIf Not dT Is Nothing Then
             lblErrMsg.Text = ""
@@ -97,8 +99,9 @@ Public Class u_Product
             Senarai.DataBind()
             ViewState.Add("Senarai", dT)
             dT.Dispose()
+            Result = True
         End If
-        Return 0
+        Return Result
     End Function
 
     Private Sub Senarai_SelectedIndexChanged(sender As Object, e As EventArgs) Handles Senarai.SelectedIndexChanged
@@ -139,6 +142,10 @@ Public Class u_Product
             ddlSubCategory.SelectedValue = Clss.oSubCategory
             ddlLanguage.SelectedValue = Clss.oLanguage
             txtTitle.Text = Clss.oTitle
+            ddlProductType.SelectedValue = Clss.oProductType
+            txtCoverPrice.Text = Clss.oCoverPrice
+            txtCost.Text = Clss.oCost
+            txtBarcode.Text = Clss.oBarcode
 
             PubDate = Clss.oPubDate
             If PubDate Is DBNull.Value Or PubDate = "" Then
@@ -190,10 +197,10 @@ Public Class u_Product
 
     Protected Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim SQLQuery As String
-        SQLQuery = "INSERT INTO infTitles (ItemCode, ISBN, PubDate, FirstPrintDate, Status, CopyrightDate, imprint, language, Catagory1, Catagory2, Title) VALUES ('" & _
+        SQLQuery = "INSERT INTO infTitles (ItemCode, ISBN, PubDate, FirstPrintDate, Status, CopyrightDate, imprint, language, Catagory1, Catagory2, Title, ProductType, CoverPrice, Cost, Barcode) VALUES ('" & _
             TentukanAksaraCalit(txtItemCode.Text) & "', '" & TentukanAksaraCalit(txtISBN.Text) & "', CONVERT(DATETIME, '" & txtPubDate.Text & "', 103), CONVERT(DATETIME, '" & txtFirstPrintDate.Text & "', 103), '" & _
             ddlStatus.Text & "', CONVERT(DATETIME, '" & txtCopyrightDate.Text & "', 103), '" & ddlimprint.Text & "', '" & ddlLanguage.Text & "', '" & ddlCategory.Text & "', '" & _
-            ddlSubCategory.Text & "', '" & TentukanAksaraCalit(txtTitle.Text) & "') "
+            ddlSubCategory.Text & "', '" & TentukanAksaraCalit(txtTitle.Text) & "', '" & ddlProductType.SelectedValue & "', '" & txtCoverPrice.Text & "', '" & txtCost.Text & "', '" & txtBarcode.Text & "') "
         Result = Clss.ExecuteNonQuery(SQLQuery)
         If Result = True Then
             ShowPopUpMsg("Succes : SAVE Data")
@@ -230,7 +237,7 @@ Public Class u_Product
         Dim SQLQuery As String
         SQLQuery = "UPDATE infTitles SET ItemCode = '" & TentukanAksaraCalit(txtItemCode.Text) & "', ISBN = '" & TentukanAksaraCalit(txtISBN.Text) & "' , PubDate = CONVERT(DATETIME, '" & txtPubDate.Text & "', 103), FirstPrintDate = CONVERT(DATETIME, '" & txtFirstPrintDate.Text & "', 103), Status = '" & _
             ddlStatus.SelectedValue & "', CopyrightDate = CONVERT(DATETIME, '" & txtCopyrightDate.Text & "', 103), imprint = '" & ddlimprint.SelectedValue & "', language = '" & ddlLanguage.SelectedValue & "', Catagory1 = '" & ddlCategory.SelectedValue & "', Catagory2 = '" & _
-            ddlSubCategory.SelectedValue & "', Title = '" & TentukanAksaraCalit(txtTitle.Text) & "' WHERE (id = " & lblID.Text & ")"
+            ddlSubCategory.SelectedValue & "', Title = '" & TentukanAksaraCalit(txtTitle.Text) & "', ProductType = '" & ddlProductType.SelectedValue & "', CoverPrice = '" & txtCoverPrice.Text & "', Cost = '" & txtCost.Text & "', Barcode = '" & txtBarcode.Text & "' WHERE (id = " & lblID.Text & ")"
 
         Result = Clss.ExecuteNonQuery(SQLQuery)
         If Result = True Then
@@ -266,4 +273,5 @@ Public Class u_Product
         End If
 
     End Function
+
 End Class

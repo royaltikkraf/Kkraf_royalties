@@ -60,7 +60,7 @@
                                 <li><a runat="server" href="~/u_Author">Author</a></li>
                                 <li><a href="#">Royalty</a></li>
                                 <li><a href="#">Sales</a></li>
-                                <li><a runat="server" href="~/u_Product">Title</a></li>
+                                <li><a runat="server" href="~/u_Product">Item</a></li>
                             </ul>
                         </li>
                         <li><a runat="server" href="#">Confg.</a></li>
