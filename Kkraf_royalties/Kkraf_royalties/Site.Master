@@ -58,12 +58,14 @@
                             <a class="dropdown-toggle" data-toggle="dropdown" role="button" runat="server" href="~/ConnDBase">Data & Function<span class="caret"></span></a>
                             <ul class="dropdown-menu">                                
                                 <li><a runat="server" href="~/u_Author">Author</a></li>
-                                <li><a href="#">Royalty</a></li>
-                                <li><a href="#">Sales</a></li>
+                                <li><a runat="server" href="#">Customer</a></li>
                                 <li><a runat="server" href="~/u_Product">Item</a></li>
+                                <li><a href="#">Royalty</a></li>
+                                <li><a runat="server" href="~/u_Sales">Sales</a></li>                                
+                                
                             </ul>
                         </li>
-                        <li><a runat="server" href="#">Confg.</a></li>
+                        <li><a runat="server" href="~/c_Confg">Confg.</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>

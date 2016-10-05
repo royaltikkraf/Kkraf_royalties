@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class u_Product
+Partial Public Class u_Sales
 
     '''<summary>
     '''PanelGrid control.
@@ -21,15 +21,6 @@ Partial Public Class u_Product
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents PanelGrid As Global.System.Web.UI.WebControls.Panel
-
-    '''<summary>
-    '''lblStaffID control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblStaffID As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''SortExp control.
@@ -59,6 +50,24 @@ Partial Public Class u_Product
     Protected WithEvents Senarai As Global.System.Web.UI.WebControls.DataGrid
 
     '''<summary>
+    '''FileUpload1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents FileUpload1 As Global.System.Web.UI.WebControls.FileUpload
+
+    '''<summary>
+    '''btnUpload control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnUpload As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''btnCreate control.
     '''</summary>
     '''<remarks>
@@ -86,220 +95,139 @@ Partial Public Class u_Product
     Protected WithEvents lblID As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtItemCode control.
+    '''txtSalesDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtItemCode As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtSalesDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtTitle control.
+    '''txtInvoiceNo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtTitle As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtInvoiceNo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtISBN control.
+    '''ddlISBN control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtISBN As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlISBN As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ddlCategory control.
+    '''ddlItemCode control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlCategory As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlItemCode As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ddlSubCategory control.
+    '''ddlTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlSubCategory As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents ddlTitle As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''SubCategory control.
+    '''ddlCutomerName control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SubCategory As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents ddlCutomerName As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Category control.
+    '''ddlSalesType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Category As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents ddlSalesType As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ddlimprint control.
+    '''SalesType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlimprint As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents SalesType As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''Imprint control.
+    '''ddlEntryType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Imprint As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents ddlEntryType As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ddlLanguage control.
+    '''EntryType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlLanguage As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents EntryType As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''Language control.
+    '''txtQty control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Language As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents txtQty As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtPubDate control.
+    '''txtRetailPrice control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtPubDate As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtRetailPrice As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtPubDate_CalendarExtender control.
+    '''txtDiscount control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtPubDate_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+    Protected WithEvents txtDiscount As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtFirstPrintDate control.
+    '''ddlChannelType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtFirstPrintDate As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlChannelType As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''txtFirstPrintDate_CalendarExtender control.
+    '''ChannelType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtFirstPrintDate_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
-
-    '''<summary>
-    '''txtCopyrightDate control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtCopyrightDate As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtCopyrightDate_CalendarExtender control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtCopyrightDate_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
-
-    '''<summary>
-    '''ddlProductType control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlProductType As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''ProductType control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ProductType As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''txtCoverPrice control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtCoverPrice As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtCost control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtCost As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtBarcode control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtBarcode As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''ddlStatus control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlStatus As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''Status control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Status As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents ChannelType As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
     '''ValidationSummary1 control.

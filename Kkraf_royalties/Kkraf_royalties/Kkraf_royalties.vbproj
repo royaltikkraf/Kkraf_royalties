@@ -201,6 +201,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="c_Confg.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormAuthor.ascx" />
     <Content Include="packages.config" />
@@ -244,6 +245,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="u_Sales.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <None Include="Project_Readme.html" />
@@ -338,6 +340,13 @@
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="c_Confg.aspx.designer.vb">
+      <DependentUpon>c_Confg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="c_Confg.aspx.vb">
+      <DependentUpon>c_Confg.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -389,6 +398,13 @@
     <Compile Include="u_Author.aspx.vb">
       <DependentUpon>u_Author.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="u_Sales.aspx.designer.vb">
+      <DependentUpon>u_Sales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="u_Sales.aspx.vb">
+      <DependentUpon>u_Sales.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

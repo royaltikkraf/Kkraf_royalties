@@ -167,6 +167,7 @@
                 <td style="text-align: left; vertical-align: top">
                     <asp:ValidationSummary ID="ValidationSummary1" runat="server" ForeColor="Red" HeaderText="Error - Validation" ShowMessageBox="True" />
                     <asp:Button ID="btnCancel" runat="server" CausesValidation="False" Text="Cancel" />
+                    <asp:Button ID="btnClear" runat="server" Text="Clear" />
                     <asp:Button ID="btnSave" runat="server" Text="Save" />
                     <asp:Button ID="btnUpdate" runat="server" Text="Update" />
                     <asp:Button ID="btnDelete" runat="server" Text="Delete" />

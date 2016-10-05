@@ -193,6 +193,7 @@ Public Class u_Product
         btnUpdate.Visible = False
         btnDelete.Visible = False
         btnSave.Visible = True
+        ClearDetailTitles()
     End Sub
 
     Protected Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -204,6 +205,9 @@ Public Class u_Product
         Result = Clss.ExecuteNonQuery(SQLQuery)
         If Result = True Then
             ShowPopUpMsg("Succes : SAVE Data")
+            LoadGridTitle("", "")
+            PanelDetail.Visible = False
+            PanelGrid.Visible = True
         Else
             ShowPopUpMsg("Error : SAVE Data " & Clss.oErrMsg & "")
         End If
@@ -228,6 +232,9 @@ Public Class u_Product
         Result = Clss.ExecuteNonQuery(SQLQuery)
         If Result = True Then
             ShowPopUpMsg("Succes : DELETE Data")
+            LoadGridTitle("", "")
+            PanelDetail.Visible = False
+            PanelGrid.Visible = True
         Else
             ShowPopUpMsg("Error : DELETE Data " & Clss.oErrMsg & "")
         End If
@@ -242,9 +249,35 @@ Public Class u_Product
         Result = Clss.ExecuteNonQuery(SQLQuery)
         If Result = True Then
             ShowPopUpMsg("Succes : UPDATE Data")
+            LoadGridTitle("", "")
+            PanelDetail.Visible = False
+            PanelGrid.Visible = True
         Else
             ShowPopUpMsg("Error : UPDATE Data " & Clss.oErrMsg & "")
         End If
+    End Sub
+
+    Sub ClearDetailTitles()
+        lblID.Text = ""
+        txtItemCode.Text = ""
+        txtISBN.Text = ""
+        ddlStatus.DataBind()
+        ddlimprint.DataBind()
+        ddlCategory.DataBind()
+        ddlSubCategory.DataBind()
+        ddlLanguage.DataBind()
+        txtTitle.Text = ""
+        ddlProductType.DataBind()
+        txtCoverPrice.Text = ""
+        txtCost.Text = ""
+        txtBarcode.Text = ""
+        txtPubDate.Text = ""
+        txtFirstPrintDate.Text = ""
+        txtCopyrightDate.Text = ""
+    End Sub
+
+    Protected Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        ClearDetailTitles()
     End Sub
 
     Function TentukanAksaraCalit(ByVal ayat As String) As String
@@ -273,5 +306,4 @@ Public Class u_Product
         End If
 
     End Function
-
 End Class
