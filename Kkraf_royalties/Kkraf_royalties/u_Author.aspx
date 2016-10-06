@@ -9,8 +9,7 @@
         <asp:Label ID="lblStaffID" runat="server"></asp:Label>
         <asp:Label ID="SortExp" runat="server"></asp:Label>
         <asp:Label ID="lblErrMsg" runat="server"></asp:Label>
-        <asp:DataGrid ID="Senarai" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="3" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" GridLines="Horizontal" HeaderStyle-BackColor="Blue" HeaderStyle-ForeColor="White" PagerStyle-Visible="True" Style="border-right: black thin solid; border-top: black thin solid; border-left: black thin solid; border-bottom: black thin solid" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" HorizontalAlign="Justify">
-            <AlternatingItemStyle BackColor="#CCCCCC" />
+        <asp:DataGrid ID="Senarai" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" ForeColor="Black" GridLines="Horizontal" HeaderStyle-BackColor="Blue" HeaderStyle-ForeColor="White" PagerStyle-Visible="True" Style="border-right: black thin solid; border-top: black thin solid; border-left: black thin solid; border-bottom: black thin solid" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" HorizontalAlign="Justify">
             <Columns>
                 <asp:ButtonColumn CommandName="Select" Text="&gt;&gt;" ButtonType="PushButton"></asp:ButtonColumn>
                 <asp:BoundColumn DataField="id" HeaderText="S/N" SortExpression="id"></asp:BoundColumn>
@@ -19,10 +18,10 @@
                 <asp:BoundColumn DataField="address_email" HeaderText="e-mail" SortExpression="address_email"></asp:BoundColumn>
                 <asp:BoundColumn DataField="status" HeaderText="Status" SortExpression="status"></asp:BoundColumn>
             </Columns>
-            <FooterStyle BackColor="#CCCCCC" />
-            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" HorizontalAlign="Justify" VerticalAlign="Middle" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" Font-Bold="False" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" Mode="NumericPages" VerticalAlign="Middle" />
-            <SelectedItemStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" HorizontalAlign="Justify" VerticalAlign="Middle" />
+            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" Mode="NumericPages" VerticalAlign="Middle" />
+            <SelectedItemStyle BackColor="Silver" Font-Bold="True" ForeColor="White" Font-Italic="False" Font-Overline="False" Font-Strikeout="False" Font-Underline="False" />
         </asp:DataGrid>
         <asp:SqlDataSource ID="Author" runat="server" ConnectionString="<%$ ConnectionStrings:RoyaltiesConn %>" SelectCommand="SELECT [id], [nickname], [HPhone], [address_email], [Status] FROM [infAuthor]"></asp:SqlDataSource>
         <asp:Button ID="btnCreate" runat="server" Text="Create New" />

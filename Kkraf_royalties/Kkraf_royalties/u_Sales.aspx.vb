@@ -16,6 +16,9 @@ Public Class u_Sales
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Thread.CurrentThread.CurrentCulture = New CultureInfo("en-CA")
         If Not Page.IsPostBack Then
+            ddlSalesType.DataBind()
+            ddlEntryType.DataBind()
+            ddlChannelType.DataBind()
             If SortExp.Text = "" Then
                 LoadGridSales("", "")
             Else
@@ -64,9 +67,34 @@ Public Class u_Sales
 
     Function LoadDetailGridSales(id As Integer) As Boolean
         Query = "Select * From infSales WHERE ID =" & id & ""
-        Result = Clss.ExecuteNonQuery_Author(Query)
+        Result = Clss.ExecuteNonQuery_Sales(Query)
         If Result = True Then
+            Dim SalesDate As Object
+
             lblID.Text = Clss.oIDNo
+
+            SalesDate = Clss.oSalesDate
+            If SalesDate Is DBNull.Value Or SalesDate = "" Then
+                txtSalesDate.Text = ""
+            Else
+                If SalesDate = "01/01/1900 12:00:00 AM" Or SalesDate = "01/01/1900" Then
+                    txtSalesDate.Text = ""
+                Else
+                    txtSalesDate.Text = Convert.ToDateTime(SalesDate).ToString("dd/MM/yyyy")
+                End If
+            End If
+
+            txtInvoiceNo.Text = Clss.oInvoiceNo
+            lblISBN.Text = Clss.oISBN
+            lblItemCode.Text = Clss.oItemCode
+            txtTitle.Text = Clss.oTitle
+            txtCustomerName.Text = Clss.oCustomerName
+            ddlSalesType.SelectedValue = Clss.oSalesType
+            ddlEntryType.SelectedValue = Clss.oEntryType
+            txtQty.Text = Clss.oQty
+            txtRetailPrice.Text = Clss.oRetailPrice
+            txtDiscount.Text = Clss.oDiscount
+            ddlChannelType.SelectedValue = Clss.oChanneltype
             Result = True
         Else
             ShowPopUpMsg("ERROR : Load Data" & Clss.oErrMsg & "")
@@ -115,7 +143,9 @@ Public Class u_Sales
 
     Protected Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim SQLQuery As String
-        SQLQuery = ""
+        SQLQuery = "INSERT INTO infSales( SalesDate, invoiceNo, ISBN, ItemCode, Title, CustomerName, SalesType, EntryType, Qty, RetailPrice, Discount, ChannelType) VALUES (CONVERT(DATETIME, '" & _
+            txtSalesDate.Text & "', 102), '" & txtInvoiceNo.Text & "', '" & lblISBN.Text & "', '" & lblItemCode.Text & "', '" & txtTitle.Text & "', '" & txtCustomerName.Text & "', '" & _
+            ddlSalesType.SelectedValue & "', '" & ddlEntryType.SelectedValue & "', " & txtQty.Text & ", " & txtRetailPrice.Text & ", " & txtDiscount.Text & ", '" & ddlChannelType.SelectedValue & "') "
         Result = Clss.ExecuteNonQuery(SQLQuery)
         If Result = True Then
             ShowPopUpMsg("Succes : SAVE Data")
@@ -129,8 +159,7 @@ Public Class u_Sales
 
     Protected Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         Dim SQLQuery As String
-        SQLQuery = ""
-
+        SQLQuery = "UPDATE infSales SET SalesDate = CONVERT(DATETIME, '" & txtSalesDate.Text & "', 102), invoiceNo = '" & txtInvoiceNo.Text & "', ISBN = '" & lblISBN.Text & "', ItemCode = '" & lblItemCode.Text & "', Title = '" & txtTitle.Text & "', CustomerName = '" & txtCustomerName.Text & "', SalesType = '" & ddlSalesType.SelectedValue & "', EntryType = '" & ddlEntryType.SelectedValue & "', Qty = " & txtQty.Text & ", RetailPrice = " & txtRetailPrice.Text & ", Discount = " & txtDiscount.Text & ", ChannelType = '" & ddlChannelType.SelectedValue & "'"
         Result = Clss.ExecuteNonQuery(SQLQuery)
         If Result = True Then
             ShowPopUpMsg("Succes : UPDATE Data")
@@ -162,7 +191,18 @@ Public Class u_Sales
 
     Sub ClearDetailSales()
         lblID.Text = ""
-
+        txtSalesDate.Text = ""
+        txtInvoiceNo.Text = ""
+        lblISBN.Text = ""
+        lblItemCode.Text = ""
+        txtTitle.Text = ""
+        txtCustomerName.Text = ""
+        ddlSalesType.DataBind()
+        ddlEntryType.DataBind()
+        txtQty.Text = ""
+        txtRetailPrice.Text = ""
+        txtDiscount.Text = ""
+        ddlChannelType.DataBind()
     End Sub
 
     Private Sub ShowPopUpMsg(msg As String)
@@ -208,5 +248,21 @@ Public Class u_Sales
         btnDelete.Visible = False
         btnSave.Visible = True
         ClearDetailSales()
+    End Sub
+
+    Protected Sub btnSearchTitle_Click(sender As Object, e As EventArgs) Handles btnSearchTitle.Click
+        Query = "Select * From infTitles WHERE Title like '%" & txtTitle.Text & "%'"
+        Result = Clss.ExecuteNonQuery_Title(Query)
+        If Result = True Then
+            lblISBN.Text = Clss.oISBN
+            lblItemCode.Text = Clss.oItemCode
+            txtTitle.Text = Clss.oTitle
+            txtRetailPrice.Text = Clss.oCoverPrice
+            Result = True
+        Else
+            ShowPopUpMsg("ERROR : Load Data" & Clss.oErrMsg & "")
+            Result = False
+        End If
+
     End Sub
 End Class

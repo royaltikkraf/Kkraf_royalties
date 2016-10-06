@@ -347,6 +347,107 @@ Public Class Clss
         End Set
     End Property
 
+    Dim SalesDate As String
+    Dim InvoiceNo As String
+    Dim CustomerCode As String
+    Dim CustomerName As String
+    Dim SalesType As String
+    Dim EntryType As String
+    Dim Qty As String
+    Dim RetailPrice As String
+    Dim Discount As String
+    Dim Channeltype As String
+
+    Public Property oSalesDate() As String
+        Get
+            oSalesDate = SalesDate
+        End Get
+        Set(ByVal value As String)
+            SalesDate = value
+        End Set
+    End Property
+
+    Public Property oInvoiceNo() As String
+        Get
+            oInvoiceNo = InvoiceNo
+        End Get
+        Set(ByVal value As String)
+            InvoiceNo = value
+        End Set
+    End Property
+
+    Public Property oCustomerCode() As String
+        Get
+            oCustomerCode = CustomerCode
+        End Get
+        Set(ByVal value As String)
+            CustomerCode = value
+        End Set
+    End Property
+
+    Public Property oCustomerName() As String
+        Get
+            oCustomerName = CustomerName
+        End Get
+        Set(ByVal value As String)
+            CustomerName = value
+        End Set
+    End Property
+
+    Public Property oSalesType() As String
+        Get
+            oSalesType = SalesType
+        End Get
+        Set(ByVal value As String)
+            SalesType = value
+        End Set
+    End Property
+
+    Public Property oEntryType() As String
+        Get
+            oEntryType = EntryType
+        End Get
+        Set(ByVal value As String)
+            EntryType = value
+        End Set
+    End Property
+
+    Public Property oQty() As String
+        Get
+            oQty = Qty
+        End Get
+        Set(ByVal value As String)
+            Qty = value
+        End Set
+    End Property
+
+    Public Property oRetailPrice() As String
+        Get
+            oRetailPrice = RetailPrice
+        End Get
+        Set(ByVal value As String)
+            RetailPrice = value
+        End Set
+    End Property
+
+    Public Property oDiscount() As String
+        Get
+            oDiscount = Discount
+        End Get
+        Set(ByVal value As String)
+            Discount = value
+        End Set
+    End Property
+
+    Public Property oChanneltype() As String
+        Get
+            oChanneltype = Channeltype
+        End Get
+        Set(ByVal value As String)
+            Channeltype = value
+        End Set
+    End Property
+
     Function ExecuteNonQuery(ByVal Query) As Boolean
         Dim result As Boolean
         If Conn_Royalties.State = ConnectionState.Closed Then Conn_Royalties.Open()
@@ -454,6 +555,40 @@ Public Class Clss
                 CoverPrice = dr(13).ToString
                 Cost = dr(14).ToString
                 Barcode = dr(15).ToString
+
+                result = True
+            ElseIf Not dr.Read Then
+
+            End If
+        Catch ex As Exception
+            ErrMsg = ex.Message
+            result = False
+        End Try
+        dr.Close()
+        Return result
+    End Function
+
+    Function ExecuteNonQuery_Sales(ByVal Query) As Boolean
+        Dim result As Boolean
+        If Conn_Royalties.State = ConnectionState.Closed Then Conn_Royalties.Open()
+        Dim comm As New SqlCommand(Query, Conn_Royalties)
+        Try
+            dr = comm.ExecuteReader()
+            If dr.Read Then
+                IDNo = dr(0).ToString
+                SalesDate = dr(1).ToString
+                InvoiceNo = dr(2).ToString
+                ISBN = dr(3).ToString
+                ItemCode = dr(4).ToString
+                Title = dr(5).ToString
+                CustomerCode = dr(6).ToString
+                CustomerName = dr(7).ToString
+                SalesType = dr(8).ToString
+                EntryType = dr(9).ToString
+                Qty = dr(10).ToString
+                RetailPrice = dr(11).ToString
+                Discount = dr(12).ToString
+                Channeltype = dr(13).ToString
 
                 result = True
             ElseIf Not dr.Read Then

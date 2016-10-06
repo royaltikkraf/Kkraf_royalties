@@ -104,6 +104,15 @@ Partial Public Class u_Sales
     Protected WithEvents txtSalesDate As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''txtSalesDate_CalendarExtender control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtSalesDate_CalendarExtender As Global.AjaxControlToolkit.CalendarExtender
+
+    '''<summary>
     '''txtInvoiceNo control.
     '''</summary>
     '''<remarks>
@@ -113,40 +122,49 @@ Partial Public Class u_Sales
     Protected WithEvents txtInvoiceNo As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ddlISBN control.
+    '''lblISBN control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlISBN As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents lblISBN As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlItemCode control.
+    '''lblItemCode control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlItemCode As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents lblItemCode As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlTitle control.
+    '''txtTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlTitle As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtTitle As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ddlCutomerName control.
+    '''btnSearchTitle control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlCutomerName As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents btnSearchTitle As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''txtCustomerName control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtCustomerName As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ddlSalesType control.
